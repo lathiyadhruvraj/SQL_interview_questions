@@ -59,3 +59,30 @@ GROUP BY 1
 
 ---
 
+
+#### Company: Lyft
+
+### [Distance travelled](https://platform.stratascratch.com/coding/10324-distances-traveled?code_type=1) Medium
+
+#### Q. Find the top 10 users that have traveled the greatest distance. Output their id, name and a total distance traveled.
+
+```diff
+select q1.user_id, q2.name, q1.distance
+from lyft_users as q2
+right join
+(select user_id, distance from lyft_rides_log 
+order by distance desc
+limit 10)q1
+on q1.user_id = q2.id;
+
+```
+
+| lyft_rides_log           |  lyft_users                |
+|--------------------------|----------------------------|
+|id          ->   int      |  id -> int                 |
+|user_id     ->   int      |  name -> varchar           |
+|distance    ->   int      |                            |
+
+
+---
+
