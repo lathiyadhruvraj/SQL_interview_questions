@@ -114,3 +114,34 @@ ORDER BY date ASC;
 |acc_id      ->   int      |paying_customer -> varchar|user_id     -> int        |
 |                          |                          |downloads:  -> int        |
 
+---
+
+#### Company: Amazon
+
+### [Highest Cost Orders](https://platform.stratascratch.com/coding/9915-highest-cost-orders?code_type=1) Medium
+
+#### Q. Find the customer with the highest daily total order cost between 2019-02-01 to 2019-05-01. If customer had more than one order on a certain day, sum the order costs on daily basis. Output customer's first name, total cost of their items, and the date.
+
+```diff
+select c.first_name,  SUM(o.total_order_cost) as total_cost, o.order_date from customers c join orders o on c.id=o.cust_id
+    where (timestamp '2019-02-01') < o.order_date and o.order_date < (timestamp '2019-05-01') 
+    group by o.order_date, first_name
+    order by total_cost desc, o.order_date
+    limit 1;
+
+```
+
+| customers                |  orders                    |
+|--------------------------|----------------------------|
+| id   ->   int            |  id   ->   int             |
+| first_name  ->   varchar |  cust_id -> int            |
+| last_name   ->   varchar |  order_date -> datetime    |
+| city      ->   varchar   |  order_details -> varchar  |
+| address ->  varchar      |  total_order_cost -> int   |
+| phone_number -> varchar  |
+
+
+---
+
+
+
