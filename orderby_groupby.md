@@ -39,12 +39,12 @@ limit 1;
 
 ### [Host Popularity Rental Prices](https://platform.stratascratch.com/coding/9632-host-popularity-rental-prices?code_type=1) Hard
 
-#### Q. You’re given a table of rental property searches by users. The table consists of search results and outputs host information for searchers. Find the minimum, average, maximum rental prices for each host’s popularity rating. The host’s popularity rating is defined as below:
-0 reviews: New
-1 to 5 reviews: Rising
-6 to 15 reviews: Trending Up
-16 to 40 reviews: Popular
-more than 40 reviews: Hot
+#### Q. You’re given a table of rental property searches by users. The table consists of search results and outputs host information for searchers. Find the minimum, average, maximum rental prices for each host’s popularity rating. The host’s popularity rating is defined as below: <br>
+0 reviews: New <br>
+1 to 5 reviews: Rising <br>
+6 to 15 reviews: Trending Up <br>
+16 to 40 reviews: Popular <br>
+more than 40 reviews: Hot <br>
 
 
 Tip: The id column in the table refers to the search ID. You'll need to create your own host_id by concating price, room_type, host_since, zipcode, and number_of_reviews.
