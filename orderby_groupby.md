@@ -97,3 +97,46 @@ GROUP BY popularity;
 
 
 ---
+
+#### Company: Spotify
+
+### [Find the top 10 ranked songs in 2010](https://platform.stratascratch.com/coding/9650-find-the-top-10-ranked-songs-in-2010?code_type=1) Medium
+
+#### Q. What were the top 10 ranked songs in 2010? Output the rank, group name, and song name but do not show the same song twice. Sort the result based on the year_rank in ascending order.
+
+
+```diff
+select distinct(year_rank) as rnk, group_name, song_name 
+from billboard_top_100_year_end
+where year=2010 
+order by year_rank asc
+limit 10;
+
+```
+
+| airbnb_host_searches     |
+|--------------------------|
+| id: int                  |
+| price: float
+| property_type: varchar
+| room_type: varchar
+| amenities: varchar
+| accommodates: int
+| bathrooms: int
+| bed_type: varchar
+| cancellation_policy: varchar
+| cleaning_fee: bool
+| city: varchar
+| host_identity_verified: varchar
+| host_response_rate: varchar
+| host_since: datetime
+| neighbourhood: varchar
+| number_of_reviews: int
+| review_scores_rating: float
+| zipcode: int
+| bedrooms: int 
+| beds: int
+
+
+
+---
