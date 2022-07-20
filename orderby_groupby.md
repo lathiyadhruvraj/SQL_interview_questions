@@ -114,28 +114,14 @@ limit 10;
 
 ```
 
-| airbnb_host_searches     |
-|--------------------------|
-| id: int                  |
-| price: float
-| property_type: varchar
-| room_type: varchar
-| amenities: varchar
-| accommodates: int
-| bathrooms: int
-| bed_type: varchar
-| cancellation_policy: varchar
-| cleaning_fee: bool
-| city: varchar
-| host_identity_verified: varchar
-| host_response_rate: varchar
-| host_since: datetime
-| neighbourhood: varchar
-| number_of_reviews: int
-| review_scores_rating: float
-| zipcode: int
-| bedrooms: int 
-| beds: int
+| billboard_top_100_year_end     |
+|--------------------------------|
+| id: int                        |
+| year: int
+| year_rank: int
+| group_name: varchar
+| artist: varchar
+| song_name: varchar
 
 
 
