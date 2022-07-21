@@ -33,3 +33,6 @@ where q1.ranked <= 5;
 | review_count: int        |
 | is_open: int             |
 | categories: varchar      |
+
+
+---
