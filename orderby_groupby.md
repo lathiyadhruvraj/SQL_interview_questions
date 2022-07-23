@@ -126,3 +126,56 @@ limit 10;
 
 
 ---
+
+
+#### Company: Microsoft
+
+### [Premium vs Freemium](https://platform.stratascratch.com/coding/10300-premium-vs-freemium?code_type=1) Hard
+
+#### Q. Find the total number of downloads for paying and non-paying users by date. Include only records where non-paying customers have more downloads than paying customers. The output should be sorted by earliest date first and contain 3 columns date, non-paying downloads, paying downloads.
+
+OPTIMAL
+```diff
+with tab as (select user_id, paying_customer from 
+    ms_user_dimension mud inner join ms_acc_dimension mad
+    on mud.acc_id = mad.acc_id),
+
+paying as (select mdf.date, sum(mdf.downloads) paying from
+            tab inner join ms_download_facts mdf
+            on tab.user_id = mdf.user_id
+            where paying_customer='yes'
+            group by date
+            order by date
+),
+
+non_paying as (select mdf.date, sum(mdf.downloads) non_paying from
+            tab inner join ms_download_facts mdf
+            on tab.user_id = mdf.user_id
+            where paying_customer='no'
+            group by date
+            order by date
+),
+
+final as(select paying.date, paying.paying, non_paying.non_paying , 
+    case when paying.paying < non_paying.non_paying 
+    then 1 else 0 end as mark
+    from paying inner join non_paying 
+    on paying.date=non_paying.date)
+
+select final.date, final.non_paying, final.paying from final where final.mark=1;
+
+```
+
+| billboard_top_100_year_end     |
+|--------------------------------|
+| id: int                        |
+| year: int
+| year_rank: int
+| group_name: varchar
+| artist: varchar
+| song_name: varchar
+
+
+
+---
+
