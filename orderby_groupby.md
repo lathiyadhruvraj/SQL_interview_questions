@@ -186,7 +186,7 @@ select final.date, final.non_paying, final.paying from final where final.mark=1;
 |-----------------------|---------------------------|---------------------|
 | user_id: int          | acc_id: int               | date: datetime      |
 | acc_id: int           | paying_customer: varchar  | user_id: int        |
-                                                    | downloads: int      |
+|                       |                           | downloads: int      |
 
 ---
 
