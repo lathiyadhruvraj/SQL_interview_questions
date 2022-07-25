@@ -13,17 +13,14 @@ group by 1;
 
 | airbnb_hosts             | airbnb_units       |
 |--------------------------|--------------------|
-| host_id: int             | host_id: int
+| host_id: int             | host_id: int       |
+| nationality: varchar     | unit_id: varchar   |
+| gender: varchar          | unit_type: varchar |
+| age: int                 | n_beds: int        |
+|                          | n_bedrooms: int    |
+|                          | country: varchar   |
+|                          | city: varchar      |
 
-n_bedrooms: int
-country: varchar
-city: varchar
-| nationality: varchar     | unit_id: varchar
-| gender: varchar          | unit_type: varchar
-
-| age: int                 |n_beds: int
-
-|
 
 
 
