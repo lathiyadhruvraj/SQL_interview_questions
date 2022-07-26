@@ -53,3 +53,40 @@ ORDER BY 1;
 
 
 ---
+
+
+#### Company: LinkedIn
+
+### [Risky Projects](https://platform.stratascratch.com/coding/10304-risky-projects?code_type=1) Medium
+
+#### Q. Identify projects that are at risk for going overbudget. A project is considered to be overbudget if the cost of all employees assigned to the project is greater than the budget of the project. You'll need to prorate the cost of the employees to the duration of the project. For example, if the budget for a project that takes half a year to complete is 10K, then the total half-year salary of all employees assigned to the project should not exceed 10K,thenthetotalhalf−yearsalaryofallemployeesassignedtotheprojectshouldnotexceed10K. Salary is defined on a yearly basis, so be careful how to calculate salaries for the projects that last less or more than one year. Output a list of projects that are overbudget with their project name, project budget, and prorated total employee expense (rounded to the next dollar amount).
+
+```diff
+with tab as (select lep.project_id, lp.title,lp.budget, 
+            lp.budget/(lp.end_date - lp.start_date) as per_day_cost,  
+            le.salary from linkedin_projects lp
+            left join linkedin_emp_projects lep
+            on lp.id = lep.project_id
+            right join linkedin_employees le
+            on le.id = lep.emp_id),
+
+sal as(select t.project_id, sum(t.salary)/365 per_day_sal from tab t 
+        group by 1 order by 1)
+
+select distinct tab.title, tab.budget, ceil(sal.per_day_sal) expense from tab right join sal on tab.project_id = sal.project_id
+    where sal.per_day_sal > tab.per_day_cost
+    order by 1;
+
+```
+
+| linkedin_projects       | linkedin_emp_projects  | linkedin_employees      |
+|-------------------------|------------------------|-------------------------|
+| id: int                 | emp_id:int             | id: int                 |
+| title: varchar          | project_id: int        | first_name : varchar    |
+| budget: int             |                        | last_name : varchar     |
+| start_date: datetime    |                        | salary : int            |
+| end_date: datetime      |                        |                         |
+
+
+---
+
