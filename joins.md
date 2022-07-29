@@ -90,3 +90,32 @@ select distinct tab.title, tab.budget, ceil(sal.per_day_sal) expense from tab ri
 
 ---
 
+
+
+#### Company: Dropbox
+
+### [Salaries Differences](https://platform.stratascratch.com/coding/10308-salaries-differences?code_type=1) Easy
+
+#### Q. Write a query that calculates the difference between the highest salaries found in the marketing and engineering departments. Output just the absolute difference in salaries.
+
+```diff
+with depts as(select e.salary, d.department from db_employee e
+                left join
+                    db_dept d 
+                on e.department_id = d.id
+                where department='engineering' or department='marketing') 
+
+select abs((select max(salary) from depts where department='engineering')-(select max(salary) from depts where department='marketing'));
+
+```
+
+| db_employee             | db_dept                | 
+|-------------------------|------------------------|
+| id: int                 | id: int                | 
+| first_name: varchar     | department: int        | 
+| last_name: varchar      |                        |
+| salary: int             |                        |
+| department_id: int      |                        | 
+| email: datetime         |                        |
+
+---
