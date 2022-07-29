@@ -69,3 +69,46 @@ order by 3 desc;
 
 
 ---
+
+#### Company: Netflix
+
+### [Top Percentile Fraud](https://platform.stratascratch.com/coding/10303-top-percentile-fraud?code_type=1) Hard
+
+#### Q. ABC Corp is a mid-sized insurer in the US and in the recent past their fraudulent claims have increased significantly for their personal auto insurance portfolio. They have developed a ML based predictive model to identify propensity of fraudulent claims. Now, they assign highly experienced claim adjusters for top 5 percentile of claims identified by the model.Your objective is to identify the top 5 percentile of claims from each state. Your output should be policy number, state, claim cost, and fraud score.
+
+with window fn -
+```diff
+SELECT policy_num,
+       state,
+       claim_cost,
+       fraud_score,
+FROM
+  (SELECT *,
+          ntile(100) over(PARTITION BY state
+                          ORDER BY fraud_score DESC) AS percentile
+   FROM fraud_score)a
+WHERE percentile <=5;
+
+```
+```diff
+select a.policy_num, a.state, a.claim_cost, a.fraud_score 
+from
+    (select *, rank() over(partition by state order by fraud_score) rnk
+    from fraud_Score) a
+left join
+    (select ceil(0.05*count(policy_num)) as top5, state from fraud_score
+    group by state order by state) b
+on b.state = a.state
+where a.rnk <= b.top5;
+
+```
+
+| fraud_score            |
+|------------------------|
+| policy_num : varchar   |
+| state : varchar        | 
+| claim_cost : int       |
+| fraud_score : float    |
+
+
+---
