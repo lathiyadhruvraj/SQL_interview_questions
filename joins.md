@@ -142,3 +142,30 @@ on ah.nationality = ag.nationality and  ah.gender = ag.gender;
 | age: int                | age: int               |
 
 ---
+
+
+#### Company: Meta/Facebook
+
+### [Find all posts which were reacted to with a heart](https://platform.stratascratch.com/coding/10087-find-all-posts-which-were-reacted-to-with-a-heart?code_type=1) Easy
+
+#### Q. Find all posts which were reacted to with a heart. For such posts output all columns from facebook_posts table.
+
+```diff
+select distinct fp.post_id, fp.poster, fp.post_text, fp.post_keywords, fp.post_date
+from facebook_reactions fr 
+join facebook_posts fp
+on fr.post_id = fp.post_id
+where fr.reaction = 'heart';
+
+```
+
+| facebook_reactions      | facebook_posts          | 
+|-------------------------|-------------------------|
+| poster: int             | post_id: int            | 
+| friend: int             | poster: int             |
+| reaction: varchar       | post_text: varchar      |
+| date_day: int           | post_keywords: varchar  |
+| post_id: int            | post_date: datetime     |
+
+
+---
