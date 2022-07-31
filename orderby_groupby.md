@@ -190,3 +190,35 @@ select final.date, final.non_paying, final.paying from final where final.mark=1;
 
 ---
 
+#### Company: City of San Francisco
+
+### [Income By Title and Gender](https://platform.stratascratch.com/coding/10077-income-by-title-and-gender?code_type=1) Medium
+
+#### Q. Find the average total compensation based on employee titles and gender. Total compensation is calculated by adding both the salary and bonus of each employee. However, not every employee receives a bonus so disregard employees without bonuses in your calculation. Employee can receive more than one bonus. Output the employee title, gender (i.e., sex), along with the average total compensation.
+
+```diff
+select employee_title,sex, avg(salary+avgs) as avg_compensation from(select e.employee_title,e.sex,e.salary,sum(b.bonus) as avgs from sf_employee e
+join sf_bonus b on e.id = b.worker_ref_id
+where b.bonus is not null
+group by 1,2,3)t
+group by 1,2;
+
+```
+
+| sf_employee              | sf_bonus             | 
+|--------------------------|----------------------|
+| id: int                  | worker_ref_id: int   |
+| first_name: varchar      | bonus: int           |
+| last_name: varchar       | bonus_date: datetime |
+| age: int
+| sex: varchar
+| employee_title: varchar
+| department: varchar
+| salary: int
+| target: int
+| email: varchar
+| city: varchar
+| address: varchar
+| manager_id: int
+
+---
