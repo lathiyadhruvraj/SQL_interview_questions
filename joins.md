@@ -203,3 +203,45 @@ where e1.salary > e2.salary ;
 | manager_id: int         |
 
 ---
+
+
+#### Company: Meta/Facebook
+
+### [Acceptance Rate By Date](https://platform.stratascratch.com/coding/10285-acceptance-rate-by-date?code_type=1) Medium
+
+#### Q. What is the overall friend acceptance rate by date? Your output should have the rate of acceptances by the date the request was sent. Order by the earliest date to latest.
+Assume that each friend request starts by a user sending (i.e., user_id_sender) a friend request to another user (i.e., user_id_receiver) that's logged in the table with action = 'sent'. If the request is accepted, the table logs action = 'accepted'. If the request is not accepted, no record of action = 'accepted' is logged.
+
+
+```diff
+with q1 as (select fr1.date, count(fr1.date) as dcnt
+from fb_friend_requests fr1
+join fb_friend_requests fr2
+on fr1.user_id_sender = fr2.user_id_sender and 
+    fr1.user_id_receiver = fr2.user_id_receiver and 
+    fr1.action != fr2.action
+where fr1.action = 'sent'
+group by fr1.date),
+
+q2 as (select q.date, count(q.action) as cnt
+from (select * from fb_friend_requests where action='sent')q
+group by q.date)
+
+select q1.date, (q1.dcnt*1.0)/(1.0*q2.cnt)::float as acc_Rate
+from q1 join q2 on q1.date=q2.date;
+
+
+```
+
+| fb_friend_requests      |
+|-------------------------|
+| id: int                 |
+| user_id_sender:
+varchar
+user_id_receiver:
+varchar
+date:
+datetime
+action:
+varchar
+---
