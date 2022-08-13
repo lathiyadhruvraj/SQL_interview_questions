@@ -90,6 +90,7 @@ FROM
 WHERE percentile <=5;
 
 ```
+Second Approach
 ```diff
 select a.policy_num, a.state, a.claim_cost, a.fraud_score 
 from
