@@ -1,4 +1,4 @@
-#### Company: Google
+##### Company: Google
 
 ### [Counting Instances in Text](https://platform.stratascratch.com/coding/9814-counting-instances-in-text?code_type=1) Hard
 
