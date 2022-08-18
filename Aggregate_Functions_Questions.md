@@ -1,4 +1,4 @@
-#### Company: DoorDash
+##### Company: DoorDash
 
 ### [Workers With The Highest Salaries](https://platform.stratascratch.com/coding/10353-workers-with-the-highest-salaries?code_type=1) Medium
 
