@@ -95,7 +95,7 @@ from sf_restaurant_health_violations
 ---
 
 
-#### Company: Spotify
+### Company: Spotify
 
 ### [Top Ranked Songs](https://platform.stratascratch.com/coding/9991-top-ranked-songs?code_type=1) Medium
 
