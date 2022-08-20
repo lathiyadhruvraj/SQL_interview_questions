@@ -1,4 +1,4 @@
-#### Company: Yelp
+### Company: Yelp
 
 ### [Top 5 States With 5 Star Businesses](https://platform.stratascratch.com/coding/10046-top-5-states-with-5-star-businesses?code_type=1) Hard
 
