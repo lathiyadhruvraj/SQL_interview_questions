@@ -271,7 +271,7 @@ order by 2;
 | dc_bikeshare_q1_2012        |
 |-----------------------------|
 | duration: varchar           |
-| duration_seconds: int
+| duration_seconds: int       |
 | start_time: datetime
 | start_station: varchar 
 | start_terminal: int 
