@@ -236,7 +236,7 @@ from q1 join q2 on q1.date=q2.date;
 | fb_friend_requests      |
 |-------------------------|
 | id: int                 |
-| user_id_sender: varchar
+| user_id_sender: varchar |
 | user_id_receiver: varchar
 | date: datetime
 | action: varchar
