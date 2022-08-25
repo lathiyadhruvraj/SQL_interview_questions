@@ -28,6 +28,5 @@ where contents like 'bear %' or contents like '% bear %' or contents like '% bea
 | filename: varchar        |
 | contents: varchar        |
 
-
 ---
 
