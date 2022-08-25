@@ -142,7 +142,7 @@ select c.first_name,  SUM(o.total_order_cost) as total_cost, o.order_date from c
 
 ---
 
-#### Company: Amazon
+### Company: Amazon
 
 ### [Marketing Campaign Success [Advanced]](https://platform.stratascratch.com/coding/514-marketing-campaign-success-advanced?code_type=1) Hard
 
