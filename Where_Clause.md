@@ -148,3 +148,37 @@ where yearly_salary <= 30000 or yearly_salary >= 70000 ;
 
 
 ---
+
+
+### Company: City of San Francisco
+
+
+### [Find the base pay for Police Captains](https://platform.stratascratch.com/coding/9972-find-the-base-pay-for-police-captains?code_type=1) Easy
+
+
+#### Q. Find the base pay for Police Captains. Output the employee name along with the corresponding base pay.
+
+```diff
+select employeename, basepay
+from sf_public_salaries
+where jobtitle = 'CAPTAIN III (POLICE DEPARTMENT)';
+```
+
+| sf_public_salaries   |
+|----------------------|
+| id: int              |  
+| employeename: varchar
+| jobtitle: varchar
+| basepay: float
+| overtimepay: float
+| otherpay: float 
+| benefits: float
+| totalpay: float
+| totalpaybenefits: float
+| year: int
+| notes: datetime
+| agency: varchar
+| status: varchar
+
+
+---
