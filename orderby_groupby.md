@@ -1,4 +1,4 @@
-##### Company: ESPN
+#### Company: ESPN
 
 ### [Largest Olympics](https://platform.stratascratch.com/coding/9942-largest-olympics?code_type=1) Medium
 
