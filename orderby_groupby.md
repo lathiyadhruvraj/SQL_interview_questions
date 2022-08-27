@@ -68,7 +68,6 @@ GROUP BY host_id, popularity, price)
 SELECT popularity, MIN(price), AVG(price), MAX(price)
 FROM output
 GROUP BY popularity;
-
 ```
 
 | airbnb_host_searches     |
@@ -189,6 +188,7 @@ select final.date, final.non_paying, final.paying from final where final.mark=1;
 |                       |                           | downloads: int      |
 
 ---
+
 
 #### Company: City of San Francisco
 
