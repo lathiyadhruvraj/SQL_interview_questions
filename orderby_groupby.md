@@ -285,3 +285,34 @@ order by 2;
 
 ---
 
+### Company: Spotify
+
+### [Top Ranked Songs](https://platform.stratascratch.com/coding/9991-top-ranked-songs?code_type=1) Medium
+
+
+#### Q. Find songs that have ranked in the top position. Output the track name and the number of times it ranked at the top. Sort your records by the number of times the song was in the top position in descending order.
+
+```diff
+select q.trackname, sum(q.position) as times
+from
+    (select trackname, position
+    from spotify_worldwide_daily_song_ranking
+    where position=1) q
+group by q.trackname
+order by times desc;
+
+```
+
+| spotify_worldwide_daily_song_ranking |
+|--------------------------------------|
+| id          ->   int                 | 
+| position    ->   int                 | 
+| trackname   ->   varchar             |  
+| artist      ->   varchar             |
+| streams     ->   int                 |
+| url         ->   varchar             |
+| date        ->   datetime            |
+| region      ->   varchar             |
+
+
+---
