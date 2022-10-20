@@ -171,5 +171,35 @@ select count(distinct counta.user_id) from (
 
 ---
 
+---
+
+### Company: Amazon
+
+### [Customer Average Orders](https://platform.stratascratch.com/coding/2013-customer-average-orders?code_type=1) Easy
+
+#### Q. How many customers placed an order and what is the average order amount?
+
+
+```diff
+select count(distinct counta.user_id) from (
+ select user_id, case when min(created_at) over (Partition By user_id)
+ <> min(created_at) over(partition by user_id,product_id) then 1 else 0 end as campaign
+ from marketing_campaign
+ ) counta
+ where campaign = 1;
+
+```
+
+| marketing_campaign       |
+|--------------------------|
+|user_id     ->   int      |
+|created_at  ->   datetime | 
+|product_id  ->   int      | 
+|quantity ->      int      |
+|price ->         int      |
+
+
+---
+
 
 
