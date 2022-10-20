@@ -316,3 +316,34 @@ order by times desc;
 
 
 ---
+
+---
+
+### Company: Redfin
+
+### [Rush Hour Calls](https://platform.stratascratch.com/coding/2023-rush-hour-calls?code_type=1) Medium
+
+
+#### Q. Redfin helps clients to find agents. Each client will have a unique request_id and each request_id has several calls. For each request_id, the first call is an “initial call” and all the following calls are “update calls”.  How many customers have called 3 or more times between 3 PM and 6 PM (initial and update calls combined)?
+
+```diff
+SELECT count(*)
+FROM
+  (SELECT DISTINCT request_id
+   FROM redfin_call_tracking
+   WHERE date_part('hour', created_on::TIMESTAMP) BETWEEN 15 AND 18
+   GROUP BY request_id
+   HAVING count(*)>=3) sq
+
+```
+
+| redfin_call_tracking       |
+|----------------------------|
+| created_on ->   datetime   | 
+| request_id ->   int        | 
+| call_duration ->   int     |  
+| id      ->   int           |
+
+
+
+---
