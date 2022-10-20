@@ -187,13 +187,15 @@ FROM postmates_orders
 
 ```
 
-| marketing_campaign       |
+| postmates_orders         |
 |--------------------------|
-|user_id     ->   int      |
-|created_at  ->   datetime | 
-|product_id  ->   int      | 
-|quantity ->      int      |
-|price ->         int      |
+| id: int                  |
+| customer_id: int         |
+| courier_id: int
+| seller_id:  int
+| order_timestamp_utc: datetime
+| amount: float 
+| city_id: int
 
 
 ---
