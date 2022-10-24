@@ -149,7 +149,6 @@ where yearly_salary <= 30000 or yearly_salary >= 70000 ;
 
 ---
 
-
 ### Company: City of San Francisco
 
 
@@ -179,6 +178,5 @@ where jobtitle = 'CAPTAIN III (POLICE DEPARTMENT)';
 | notes: datetime
 | agency: varchar
 | status: varchar
-
 
 ---
