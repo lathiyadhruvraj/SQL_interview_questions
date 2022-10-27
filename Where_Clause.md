@@ -51,6 +51,7 @@ where cool=(select max(cool) from yelp_reviews);
 
 ---
 
+
 #### Company: City of San Francisco
 
 ### [Classify Business Type](https://platform.stratascratch.com/coding/9726-classify-business-type?code_type=1) Medium
