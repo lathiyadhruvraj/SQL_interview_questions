@@ -454,6 +454,14 @@ employee as emp left join q1
 on emp.department = q1.dept
 order by 1;
 ```
+```
+SELECT 
+        department, 
+        first_name, 
+        salary, 
+        AVG(salary) over (PARTITION BY department) 
+FROM employee;
+```
 
 | employee                  |
 |---------------------------|
