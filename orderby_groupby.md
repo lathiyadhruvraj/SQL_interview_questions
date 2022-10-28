@@ -434,3 +434,43 @@ order by 2 desc;
 
 
 ---
+
+### Company: Salesforce
+
+### [Average Salaries](https://platform.stratascratch.com/coding/9917-average-salaries?code_type=1) Easy
+
+
+#### Q. Compare each employee's salary with the average salary of the corresponding department. Output the department, first name, and salary of employees along with the average salary of that department.
+
+```diff
+with q1 as(
+    select department as dept, avg(salary) as avg_sal
+    from employee
+    group by 1
+)
+
+select emp.department, emp.first_name, emp.salary, q1.avg_sal  from
+employee as emp left join q1
+on emp.department = q1.dept
+order by 1;
+```
+
+| employee                  |
+|---------------------------|
+| id: int                   |
+| first_name: varchar       |
+| last_name: varchar        |
+| age: int                  |
+| sex: varchar
+| employee_title: varchar
+| department: varchar
+| salary: int
+| target: int
+| bonus: int
+| email: varchar
+| city: varchar
+| address: varchar
+| manager_id: int
+
+
+---
