@@ -350,12 +350,21 @@ order by c.id ;
 ```
 
 
-| fb_friend_requests      |
+| customers               |
 |-------------------------|
 | id: int                 |
-| user_id_sender: varchar |
-| user_id_receiver: varchar
-| date: datetime
-| action: varchar
+| first_name: varchar
+| last_name: varchar
+| city: varchar
+| address: varchar
+| phone_number: varchar
+
+| orders                  |
+|-------------------------|
+| id: int                 |
+| cust_id: int
+| order_date: datetime
+| order_details: varchar
+| total_order_cost: int
 
 --- 
