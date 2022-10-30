@@ -215,7 +215,7 @@ where provided_email_address = False and circulation_active_year = 2016 and noti
 ---
 
 
-### Company: vSalesforce
+### Company: Salesforce
 
 ### [Highest Target Under Manager](https://platform.stratascratch.com/coding/9905-highest-target-under-manager?code_type=1) Medium
 
@@ -249,3 +249,30 @@ WHERE target IN
 | manager_id: int
 
 ---
+
+### Company: Meta/Facebook
+
+### [Customer Revenue In March](https://platform.stratascratch.com/coding/9782-customer-revenue-in-march?code_type=1) Medium
+
+#### Q. Calculate the total revenue from each customer in March 2019. Include only customers who were active in March 2019. Output the revenue along with the customer id and sort the results based on the revenue in descending order.
+
+```diff
+SELECT cust_id, SUM(total_order_cost) AS revenue
+FROM orders
+-- WHERE DATE(order_date) BETWEEN '2019-03-01' AND  '2019-03-31'
+WHERE TO_CHAR(order_date, 'YYYY-MM') = '2019-03'
+GROUP BY cust_id
+ORDER BY revenue DESC;
+  
+```
+
+| orders                          |
+|---------------------------------|
+| id: int                         |
+| cust_id: int
+| order_date: datetime
+| order_details: varchar
+| total_order_cost: int
+
+---
+
