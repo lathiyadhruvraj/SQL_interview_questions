@@ -276,3 +276,38 @@ ORDER BY revenue DESC;
 
 ---
 
+
+### Company: Twitter
+
+### [Highest Salary In Department](https://platform.stratascratch.com/coding/9897-highest-salary-in-department?code_type=1) Medium
+
+#### Q. Find the employee with the highest salary per department. Output the department name, employee's first name along with the corresponding salary.
+
+```diff
+select department, first_name,  salary
+from employee
+where (department , salary) IN
+    (   select e2.department, max(e2.salary) as sal
+        from employee e2    
+        group by department);
+  
+```
+
+| orders                          |
+|---------------------------------|
+| id: int                         |
+| first_name: varchar             |
+| last_name: varchar
+| age: int
+| sex: varchar
+| employee_title: varchar
+| department: varchar
+| salary: int
+| target: int
+| bonus: int
+| email: varchar
+| city: varchar
+| address: varchar
+| manager_id: int
+
+---
