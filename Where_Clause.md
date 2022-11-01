@@ -348,4 +348,6 @@ order by 1 asc;
 | violation_id: varchar
 | violation_description: varchar
 | risk_category: varchar
+
+
 ---
