@@ -399,6 +399,17 @@ WHERE facility_name = 'STREET CHURROS' AND score < 95
 
 #### Q. Find the most profitable company from the financial sector. Output the result along with the continent.
 
+
+```diff
+
+select company, continent 
+from forbes_global_2010_2014 
+where sector = 'Financials' 
+order by profits desc 
+limit 1;
+
+```
+
 ```diff
 
 select company, continent
@@ -409,5 +420,7 @@ where profits in (
     where sector = 'Financials') ;
 
 ```
+
+
 
 ---
