@@ -422,5 +422,23 @@ where profits in (
 ```
 
 
+### Company: Apple
+
+### [Count the number of user events performed by MacBookPro users](https://platform.stratascratch.com/coding/9653-count-the-number-of-user-events-performed-by-macbookpro-users?code_type=1) Easy
+
+#### Q. Count the number of user events performed by MacBookPro users. Output the result along with the event name. Sort the result based on the event count in the descending order.
+
+
+```diff
+
+select event_name, count(*) 
+from playbook_events
+where device = 'macbook pro'
+group by 1
+order by 2 desc;
+
+```
+
+
 
 ---
