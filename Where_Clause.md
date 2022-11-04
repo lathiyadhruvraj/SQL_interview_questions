@@ -439,6 +439,38 @@ order by 2 desc;
 
 ```
 
+---
 
+
+### Company: Wine Magazine
+
+### [Find all wineries which produce wines by possessing aromas of plum, cherry, rose, or hazelnut](https://platform.stratascratch.com/coding/10026-find-all-wineries-which-produce-wines-by-possessing-aromas-of-plum-cherry-rose-or-hazelnut?tabname=solutions) Medium
+
+#### Q. Find all wineries which produce wines by possessing aromas of plum, cherry, rose, or hazelnut. To make it more simple, look only for singular form of the mentioned aromas. Output unique winery values only.
+
+
+```diff
+
+SELECT DISTINCT winery
+FROM winemag_p1
+WHERE lower(description) ~ '\y(plum|cherry|rose|hazelnut)\y'
+
+```
+
+
+| winemag_p1             |
+|------------------------|
+| id: int                |
+| country: varchar       |
+| description: varchar
+| designation: varchar
+| points: int
+| price: float
+| province: varchar
+| region_1: varchar
+| region_2: varchar
+| variety: varchar
+| winery: varchar
 
 ---
+
