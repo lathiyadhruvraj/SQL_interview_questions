@@ -607,3 +607,17 @@ limit 3;
 | forbeswebpage: varchar
 
 ---
+
+### Find the top 3 most common pairs of departments that employees have worked in, sorted in descending order of frequency.
+
+```diff
+SELECT dept1, dept2, COUNT(*) AS frequency
+FROM (
+    SELECT e1.department AS dept1, e2.department AS dept2
+    FROM employees e1
+    JOIN employees e2 ON e1.id = e2.manager_id
+) AS department_pairs
+GROUP BY dept1, dept2
+ORDER BY frequency DESC
+LIMIT 3;
+```
