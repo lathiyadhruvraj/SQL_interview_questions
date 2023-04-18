@@ -433,3 +433,20 @@ ORDER BY date ASC;
 |                          |                          |downloads:  -> int        |
 
 ---
+
+#### List the names of employees who have worked in at least 3 different departments, with their current department and their previous department(s) listed in chronological order.
+
+```diff 
+WITH RECURSIVE employee_history(id, department_list) AS (
+    SELECT id, ARRAY[department] AS department_list
+    FROM employees
+    UNION ALL
+    SELECT e.id, e.department || eh.department_list
+    FROM employee_history eh
+    JOIN employees e ON eh.id = e.manager_id AND NOT e.department = ALL(eh.department_list)
+)
+SELECT e.name, e.department, eh.department_list
+FROM employee_history eh
+JOIN employees e ON eh.id = e.id
+WHERE array_length(eh.department_list, 1) >= 3;
+```
