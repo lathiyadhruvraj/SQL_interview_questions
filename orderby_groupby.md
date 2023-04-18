@@ -621,3 +621,18 @@ GROUP BY dept1, dept2
 ORDER BY frequency DESC
 LIMIT 3;
 ```
+
+
+---
+
+### Find the top 5 pairs of employees who have worked together in the most number of departments, sorted in descending order of frequency.
+
+```diff
+SELECT e1.name AS employee1, e2.name AS employee2, COUNT(*) AS frequency
+FROM employees e1
+JOIN employees e2 ON e1.id < e2.id AND e1.department = e2.department
+GROUP BY e1.id, e2.id
+ORDER BY frequency DESC
+LIMIT 5;
+
+```
