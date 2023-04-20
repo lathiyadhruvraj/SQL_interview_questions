@@ -637,6 +637,8 @@ LIMIT 5;
 
 ```
 
+---
+
 ### Given a table containing the number of orders for each customer, write a SQL query to find the top 10% of customers who have made the most orders:
 
 ```diff
@@ -648,3 +650,23 @@ LIMIT (SELECT COUNT(DISTINCT customer_id) * 0.1 FROM orders)
 
 
 ```
+
+---
+
+
+### Given two tables "orders" and "order_items", write a SQL query to find the top 5 products with the highest revenue in the last 30 days:
+
+```diff
+SELECT oi.product_id, SUM(oi.price * oi.quantity) as revenue
+FROM orders o
+JOIN order_items oi ON o.order_id = oi.order_id
+WHERE o.order_date >= DATEADD(day, -30, GETDATE())
+GROUP BY oi.product_id
+ORDER BY revenue DESC
+LIMIT 5
+
+
+
+```
+
+---
