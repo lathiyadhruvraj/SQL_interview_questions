@@ -450,3 +450,19 @@ FROM employee_history eh
 JOIN employees e ON eh.id = e.id
 WHERE array_length(eh.department_list, 1) >= 3;
 ```
+
+---
+
+#### Given a table containing employee names, their respective salaries, and their department IDs, write a SQL query to find the highest-paid employee in each department:
+```diff 
+SELECT e1.employee_id, e1.name, e1.salary, e1.department_id
+FROM employees e1
+JOIN (
+  SELECT department_id, MAX(salary) AS max_salary
+  FROM employees
+  GROUP BY department_id
+) e2 ON e1.department_id = e2.department_id AND e1.salary = e2.max_salary
+
+```
+
+---
