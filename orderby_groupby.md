@@ -636,3 +636,15 @@ ORDER BY frequency DESC
 LIMIT 5;
 
 ```
+
+### Given a table containing the number of orders for each customer, write a SQL query to find the top 10% of customers who have made the most orders:
+
+```diff
+SELECT customer_id, SUM(order_count) as total_orders
+FROM orders
+GROUP BY customer_id
+ORDER BY total_orders DESC
+LIMIT (SELECT COUNT(DISTINCT customer_id) * 0.1 FROM orders)
+
+
+```
