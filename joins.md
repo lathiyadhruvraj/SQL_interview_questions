@@ -466,3 +466,57 @@ JOIN (
 ```
 
 ---
+#### Company: Amazon
+
+### [Best Selling Item](https://platform.stratascratch.com/coding/10172-best-selling-item?code_type=1) Hard
+
+#### Q. Find the best selling item for each month (no need to separate months by year) where the biggest total invoice was paid. The best selling item is calculated using the formula (unitprice * quantity). Output the description of the item along with the amount paid.
+
+```diff
+
+SELECT 
+    MONTH(invoicedate) AS month, 
+    description AS best_selling_item, 
+    MAX(total_amount_paid) AS amount_paid 
+FROM (
+    SELECT 
+        MONTH(invoicedate) AS month, 
+        stockcode, 
+        description, 
+        SUM(quantity * unitprice) AS total_amount_paid 
+    FROM online_retail 
+    GROUP BY 
+        MONTH(invoicedate), 
+        stockcode, 
+        description
+) AS monthly_sales 
+JOIN (
+    SELECT 
+        MONTH(invoicedate) AS month, 
+        MAX(total_amount_paid) AS max_total_amount_paid 
+    FROM (
+        SELECT 
+            MONTH(invoicedate) AS month, 
+            SUM(quantity * unitprice) AS total_amount_paid 
+        FROM online_retail 
+        GROUP BY MONTH(invoicedate)
+    ) AS monthly_totals
+    GROUP BY MONTH(invoicedate)
+) AS max_monthly_totals 
+ON monthly_sales.month = max_monthly_totals.month 
+    AND monthly_sales.total_amount_paid = max_monthly_totals.max_total_amount_paid 
+GROUP BY MONTH(invoicedate)
+
+
+```
+online_retail |
+invoiceno: varchar|
+stockcode: varchar
+description: varchar
+quantity: int
+invoicedate: datetime
+unitprice: float
+customerid: float
+country: varchar
+
+---
