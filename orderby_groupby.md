@@ -752,3 +752,26 @@ ORDER BY revenue DESC;
 | total_order_cost: int
 
 ---
+
+
+### Company: Zillow
+
+### [Cities With The Most Expensive Homes](https://platform.stratascratch.com/coding/10315-cities-with-the-most-expensive-homes?code_type=1) Medium
+
+#### Q. Write a query that identifies cities with higher than average home prices when compared to the national average. Output the city names.
+
+```diff
+SELECT city
+FROM zillow_transactions
+WHERE mkt_price > (
+    SELECT AVG(mkt_price)
+    FROM zillow_transactions
+  )
+GROUP BY city
+HAVING AVG(mkt_price) > (
+    SELECT AVG(mkt_price)
+    FROM zillow_transactions
+  );
+
+  
+```
