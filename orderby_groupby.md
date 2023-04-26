@@ -775,3 +775,13 @@ HAVING AVG(mkt_price) > (
 
   
 ```
+id:
+int
+state:
+varchar
+city:
+varchar
+street_address:
+varchar
+mkt_price:
+int
