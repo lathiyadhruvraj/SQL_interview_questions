@@ -520,3 +520,30 @@ customerid: float
 country: varchar
 
 ---
+
+
+#### Company: Microsoft
+
+### [Premium vs Freemium](https://platform.stratascratch.com/coding/10300-premium-vs-freemium?code_type=1) Hard
+
+#### Q. Find the total number of downloads for paying and non-paying users by date. Include only records where non-paying customers have more downloads than paying customers. The output should be sorted by earliest date first and contain 3 columns date, non-paying downloads, paying downloads.
+
+###### Optimal solution
+```diff
+with out AS(select date
+, Sum (downloads) Filter(Where paying_customer = 'no') as non_paying
+, Sum (downloads) Filter(Where paying_customer = 'yes') as paying
+From  ms_download_facts fact
+Left Join ms_user_dimension a
+on fact.user_id = a.user_id
+Join ms_acc_dimension acc
+on a.acc_id = acc.acc_id
+Group by date
+order by date)
+Select date , non_paying , paying
+From out
+Where non_paying > paying;
+```
+
+---
+
