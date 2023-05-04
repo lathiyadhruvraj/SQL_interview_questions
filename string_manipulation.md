@@ -30,3 +30,15 @@ where contents like 'bear %' or contents like '% bear %' or contents like '% bea
 
 ---
 
+#### Show patient_id and first_name from patients where their first_name start and ends with 's' and is at least 6 characters long.
+
+```diff
+SELECT patient_id, first_name 
+FROM patients 
+WHERE first_name LIKE 's%_s' AND LENGTH(first_name) >= 6;
+
+```
+
+
+---
+
