@@ -818,10 +818,37 @@ weight	INT
 
 #### Show first name, last name, and gender of patients who's gender is 'M'
 
-```
+```diff
 SELECT first_name, last_name, gender
 FROM patients
 where gender="M";
+
+```
+
+
+|  patients       |
+|-----------------|
+| patient_id INT  |
+first_name	TEXT 
+last_name	TEXT 
+gender	CHAR(1)
+birth_date	DATE
+city	TEXT
+primary key icon	province_id	CHAR(2)
+allergies	TEXT
+height	INT
+weight	INT
+
+
+---
+
+
+#### Display every patient's first_name. Order the list by the length of each name and then by alphbetically.
+
+```diff
+SELECT first_name
+FROM patients
+order by len(first_name), first_name ASC;
 
 ```
 
