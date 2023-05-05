@@ -834,7 +834,8 @@ last_name	TEXT
 gender	CHAR(1)
 birth_date	DATE
 city	TEXT
-primary key icon	province_id	CHAR(2)
+primary key icon	
+province_id	CHAR(2)
 allergies	TEXT
 height	INT
 weight	INT
@@ -861,7 +862,8 @@ last_name	TEXT
 gender	CHAR(1)
 birth_date	DATE
 city	TEXT
-primary key icon	province_id	CHAR(2)
+primary key icon	
+province_id	CHAR(2)
 allergies	TEXT
 height	INT
 weight	INT
